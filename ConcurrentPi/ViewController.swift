@@ -14,7 +14,7 @@ extension UIStepper {
 
 class ViewController: UIViewController {
     
-    let trialsList = [Int(3.5e4), Int(1e5), Int(3.5e5), Int(1e6), Int(3.5e6), Int(1e7)]
+    let trialsList = [Int(3.5e4), Int(1e5), Int(3.5e5), Int(1e6), Int(3.5e6), Int(1e7), Int(3.5e7)]
     let jobsNumberList = [2, 4, 8, 16]
     
     var formatterTrials = NSNumberFormatter()
