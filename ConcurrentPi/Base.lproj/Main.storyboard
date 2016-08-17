@@ -192,6 +192,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ypo-Uw-Ls8">
                                         <rect key="frame" x="0.0" y="340" width="560" height="30"/>
                                         <state key="normal" title="Run Trials"/>
+                                        <connections>
+                                            <action selector="actionRunTrials" destination="BYZ-38-t0r" eventType="touchUpInside" id="deU-eR-aUu"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>

@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     var formatterTrials = NSNumberFormatter()
     var formatterTime = NSNumberFormatter()
     var formatterError = NSNumberFormatter()
-
+    
     @IBOutlet weak var labelTrials: UILabel?
     @IBOutlet weak var stepperTrials: UIStepper?
     
@@ -53,7 +53,9 @@ class ViewController: UIViewController {
         formatterError.usesSignificantDigits = true
         
         formatterTime.numberStyle = .DecimalStyle
-        formatterTime.formatWidth = 8
+        formatterTime.minimumSignificantDigits = 4
+        formatterTime.usesSignificantDigits = true
+//        formatterTime.formatWidth = 8
     }
     
     override func viewDidLoad() {
@@ -63,6 +65,15 @@ class ViewController: UIViewController {
         labelTrialsUpdate()
         stepperJobs?.maximumValue = Double(jobsNumberList.count - 1)
         labelJobsUpdate()
+        
+        labelSequentialUpdate()
+        labelDispatchUpdate()
+    }
+    
+    
+    @IBAction func actionRunTrials() {
+        launchDispatch()
+        launchSequential()
     }
 
     //MARK: Label setting
@@ -72,6 +83,7 @@ class ViewController: UIViewController {
             return
         }
         labelTrials?.text = formatterTrials.stringFromNumber(NSNumber(integer: trialsList[index]))
+        MonteGlobals.trials = trialsList[index]
     }
     
     func labelJobsUpdate() {
@@ -79,6 +91,7 @@ class ViewController: UIViewController {
             return
         }
         labelJobs?.text = String(jobsNumberList[index])
+        MonteGlobals.jobs = jobsNumberList[index]
     }
     
     @IBAction func stepperTrialAction() {
@@ -89,28 +102,103 @@ class ViewController: UIViewController {
         labelJobsUpdate()
     }
     
-    //MARK: Computation jobs
+    //MARK: Serial computation
     
-    var sequentialTime: Double?
+    var sequentialValue = 0.0
+    var sequentialTime: CFTimeInterval?
     var sequentialError: Double?
     
     func launchSequential() {
-        
+        sequentialTime = CACurrentMediaTime()
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) {
+            self.sequentialValue = Double.piEstimateSerial
+            dispatch_async(dispatch_get_main_queue()) {
+                self.completeSequential()
+            }
+        }
+    }
+    
+    func completeSequential() {
+        if let time = sequentialTime {
+            sequentialTime = CACurrentMediaTime() - time
+        }
+        sequentialError = abs(M_PI - sequentialValue)
+        labelSequentialUpdate()
     }
     
     func labelSequentialUpdate() {
+        var timeString = "-.--"
+        if let time = sequentialTime, str = formatterTime.stringFromNumber(NSNumber(double: time)) {
+            timeString = str
+        }
+        labelSequentialTime?.text = timeString + " secs"
         
+        var errString = "-.--E--"
+        if let error = sequentialError, str = formatterError.stringFromNumber(NSNumber(double: error)) {
+            errString = str
+        }
+        labelSequentialError?.text = errString
     }
     
-    var dispatchTime: Double?
+    
+    //MARK: Dispatch computation
+    
+    var dispatchValue = 0.0
+    var dispatchTime: CFTimeInterval?
     var dispatchError: Double?
     
     func launchDispatch() {
-        
+        dispatchTime = CACurrentMediaTime()
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) {
+            Double.piEstimateGCD(&self.dispatchValue, block: self.completeDispatch)
+        }
+    }
+    
+    func completeDispatch() {
+        if let time = dispatchTime {
+            dispatchTime = CACurrentMediaTime() - time
+        }
+        dispatchError = abs(M_PI - dispatchValue)
+        labelDispatchUpdate()
     }
     
     func labelDispatchUpdate() {
+        var timeString = "-.--"
+        if let time = dispatchTime, str = formatterTime.stringFromNumber(NSNumber(double: time)) {
+            timeString = str
+        }
+        labelDispatchTime?.text = timeString + " secs"
         
+        var errString = "-.--E--"
+        if let error = dispatchError, str = formatterError.stringFromNumber(NSNumber(double: error)) {
+            errString = str
+        }
+        labelDispatchError?.text = errString
     }
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
