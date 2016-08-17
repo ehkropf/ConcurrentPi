@@ -29,8 +29,10 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var labelSerialTime: UILabel?
     @IBOutlet weak var labelSerialError: UILabel?
+    @IBOutlet weak var activitySerial: UIActivityIndicatorView?
     @IBOutlet weak var labelDispatchTime: UILabel?
     @IBOutlet weak var labelDispatchError: UILabel?
+    @IBOutlet weak var activityDispatch: UIActivityIndicatorView?
     
     //MARK: Lifecycle
     
@@ -110,6 +112,7 @@ class ViewController: UIViewController {
     
     func launchSerial() {
         serialTime = CACurrentMediaTime()
+        activitySerial?.startAnimating()
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) {
             self.serialValue = Double.piEstimateSerial
             dispatch_async(dispatch_get_main_queue()) {
@@ -119,6 +122,7 @@ class ViewController: UIViewController {
     }
     
     func completeSerial() {
+        activitySerial?.stopAnimating()
         if let time = serialTime {
             serialTime = CACurrentMediaTime() - time
         }
@@ -149,12 +153,14 @@ class ViewController: UIViewController {
     
     func launchDispatch() {
         dispatchTime = CACurrentMediaTime()
+        activityDispatch?.startAnimating()
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) {
             Double.piEstimateGCD(&self.dispatchValue, block: self.completeDispatch)
         }
     }
     
     func completeDispatch() {
+        activityDispatch?.stopAnimating()
         if let time = dispatchTime {
             dispatchTime = CACurrentMediaTime() - time
         }
