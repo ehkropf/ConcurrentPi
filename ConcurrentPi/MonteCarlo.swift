@@ -47,9 +47,7 @@ extension Double {
         }
         return Double(4*inCircle)/Double(trials)
     }
-}
-
-extension Double {
+    
     /**
      Trying concurrent operation queues.
      Using numberOfOperations, we integer divide trials to get the number of trials per operation. (Left over trials done at the end, since there will be at most numberOfOperations.)
@@ -89,9 +87,7 @@ extension Double {
         
         return Double(4*inCircle)/Double(trials)
     }
-}
-
-extension Double {
+    
     /// Monte Carlo pi estimation using GCD.
     public static var piEstimateGCD: Double {
         let trials = MonteGlobals.trials
