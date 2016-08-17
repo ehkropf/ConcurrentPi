@@ -15,8 +15,11 @@ extension UIStepper {
 class ViewController: UIViewController {
     
     let trialsList = [Int(3.5e4), Int(1e5), Int(3.5e5), Int(1e6), Int(3.5e6), Int(1e7)]
-    var formatterTrials = NSNumberFormatter()
     let jobsNumberList = [1, 2, 4, 8, 16]
+    
+    var formatterTrials = NSNumberFormatter()
+    var formatterTime = NSNumberFormatter()
+    var formatterError = NSNumberFormatter()
 
     @IBOutlet weak var labelTrials: UILabel?
     @IBOutlet weak var stepperTrials: UIStepper?
@@ -39,6 +42,13 @@ class ViewController: UIViewController {
     func commonInit() {
         formatterTrials.numberStyle = .DecimalStyle
         formatterTrials.usesGroupingSeparator = true
+        
+        formatterError.numberStyle = .ScientificStyle
+        formatterError.minimumSignificantDigits = 5
+        formatterError.usesSignificantDigits = true
+        
+        formatterTime.numberStyle = .DecimalStyle
+        formatterTime.formatWidth = 8
     }
     
     override func viewDidLoad() {
