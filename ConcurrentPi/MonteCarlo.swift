@@ -89,14 +89,14 @@ extension Double {
     }
     
     /// Monte Carlo pi estimation using GCD.
-    public static var piEstimateGCD: Double {
+    public static func piEstimateGCD(inout pival: Double, block: () -> Void) {
         let trials = MonteGlobals.trials
         let numberOfOps = MonteGlobals.jobs
         let trialsPerOp = trials/numberOfOps
         let leftOver = trials%numberOfOps
         print("\(trials) split into \(numberOfOps) operations for \(trialsPerOp) trials each. \(leftOver) left over.")
         
-        let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+        let queue = dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)
         
         var results = [Int].init(count: numberOfOps, repeatedValue: 0)
         dispatch_apply(numberOfOps, queue) { i in
@@ -111,6 +111,41 @@ extension Double {
             inCircle += results[i]
         }
         
-        return Double(4*inCircle)/Double(trials)
+        pival = Double(4*inCircle)/Double(trials)
+        
+        dispatch_async(dispatch_get_main_queue(), block)
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
