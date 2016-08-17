@@ -42,8 +42,11 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jQg-WU-JdV">
                                                         <rect key="frame" x="0.0" y="21" width="560" height="29"/>
                                                         <subviews>
-                                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="rZF-ri-nus">
+                                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" continuous="NO" autorepeat="NO" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="rZF-ri-nus">
                                                                 <rect key="frame" x="0.0" y="0.0" width="94" height="29"/>
+                                                                <connections>
+                                                                    <action selector="stepperTrialAction" destination="BYZ-38-t0r" eventType="valueChanged" id="pCh-7x-2Fz"/>
+                                                                </connections>
                                                             </stepper>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10,000,000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8tW-NA-hqT">
                                                                 <rect key="frame" x="102" y="0.0" width="458" height="29"/>
@@ -72,8 +75,11 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Eot-Lw-pHn">
                                                         <rect key="frame" x="0.0" y="21" width="560" height="29"/>
                                                         <subviews>
-                                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Pz9-O7-lkz">
+                                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" continuous="NO" autorepeat="NO" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Pz9-O7-lkz">
                                                                 <rect key="frame" x="0.0" y="0.0" width="94" height="29"/>
+                                                                <connections>
+                                                                    <action selector="stepperJobsAction" destination="BYZ-38-t0r" eventType="valueChanged" id="dNc-X9-awJ"/>
+                                                                </connections>
                                                             </stepper>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bwa-F1-VK5">
                                                                 <rect key="frame" x="102" y="0.0" width="458" height="29"/>
@@ -197,6 +203,12 @@
                             <constraint firstItem="GsH-sX-2dW" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="zlW-0L-9Pq"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="labelJobs" destination="Bwa-F1-VK5" id="ZJm-RC-ncK"/>
+                        <outlet property="labelTrials" destination="8tW-NA-hqT" id="lPI-wp-7Cp"/>
+                        <outlet property="stepperJobs" destination="Pz9-O7-lkz" id="9qa-pf-teG"/>
+                        <outlet property="stepperTrials" destination="rZF-ri-nus" id="zZ1-ch-eR8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
