@@ -204,7 +204,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="labelDispatchError" destination="HR2-Oi-iTn" id="RNG-zF-LYP"/>
+                        <outlet property="labelDispatchTime" destination="UWk-dT-rXH" id="6da-9Q-Cti"/>
                         <outlet property="labelJobs" destination="Bwa-F1-VK5" id="ZJm-RC-ncK"/>
+                        <outlet property="labelSequentialError" destination="c9Z-Gl-5dw" id="10s-u0-TOi"/>
+                        <outlet property="labelSequentialTime" destination="NHu-4Q-r8S" id="b58-36-OH4"/>
                         <outlet property="labelTrials" destination="8tW-NA-hqT" id="lPI-wp-7Cp"/>
                         <outlet property="stepperJobs" destination="Pz9-O7-lkz" id="9qa-pf-teG"/>
                         <outlet property="stepperTrials" destination="rZF-ri-nus" id="zZ1-ch-eR8"/>

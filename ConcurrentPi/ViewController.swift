@@ -15,7 +15,7 @@ extension UIStepper {
 class ViewController: UIViewController {
     
     let trialsList = [Int(3.5e4), Int(1e5), Int(3.5e5), Int(1e6), Int(3.5e6), Int(1e7)]
-    let jobsNumberList = [1, 2, 4, 8, 16]
+    let jobsNumberList = [2, 4, 8, 16]
     
     var formatterTrials = NSNumberFormatter()
     var formatterTime = NSNumberFormatter()
@@ -26,6 +26,11 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var labelJobs: UILabel?
     @IBOutlet weak var stepperJobs: UIStepper?
+    
+    @IBOutlet weak var labelSequentialTime: UILabel?
+    @IBOutlet weak var labelSequentialError: UILabel?
+    @IBOutlet weak var labelDispatchTime: UILabel?
+    @IBOutlet weak var labelDispatchError: UILabel?
     
     //MARK: Lifecycle
     
@@ -82,6 +87,30 @@ class ViewController: UIViewController {
     
     @IBAction func stepperJobsAction() {
         labelJobsUpdate()
+    }
+    
+    //MARK: Computation jobs
+    
+    var sequentialTime: Double?
+    var sequentialError: Double?
+    
+    func launchSequential() {
+        
+    }
+    
+    func labelSequentialUpdate() {
+        
+    }
+    
+    var dispatchTime: Double?
+    var dispatchError: Double?
+    
+    func launchDispatch() {
+        
+    }
+    
+    func labelDispatchUpdate() {
+        
     }
     
 }
