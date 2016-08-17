@@ -27,8 +27,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var labelJobs: UILabel?
     @IBOutlet weak var stepperJobs: UIStepper?
     
-    @IBOutlet weak var labelSequentialTime: UILabel?
-    @IBOutlet weak var labelSequentialError: UILabel?
+    @IBOutlet weak var labelSerialTime: UILabel?
+    @IBOutlet weak var labelSerialError: UILabel?
     @IBOutlet weak var labelDispatchTime: UILabel?
     @IBOutlet weak var labelDispatchError: UILabel?
     
@@ -66,14 +66,14 @@ class ViewController: UIViewController {
         stepperJobs?.maximumValue = Double(jobsNumberList.count - 1)
         labelJobsUpdate()
         
-        labelSequentialUpdate()
+        labelSerialUpdate()
         labelDispatchUpdate()
     }
     
     
     @IBAction func actionRunTrials() {
         launchDispatch()
-        launchSequential()
+        launchSerial()
     }
 
     //MARK: Label setting
@@ -104,40 +104,40 @@ class ViewController: UIViewController {
     
     //MARK: Serial computation
     
-    var sequentialValue = 0.0
-    var sequentialTime: CFTimeInterval?
-    var sequentialError: Double?
+    var serialValue = 0.0
+    var serialTime: CFTimeInterval?
+    var serialError: Double?
     
-    func launchSequential() {
-        sequentialTime = CACurrentMediaTime()
+    func launchSerial() {
+        serialTime = CACurrentMediaTime()
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) {
-            self.sequentialValue = Double.piEstimateSerial
+            self.serialValue = Double.piEstimateSerial
             dispatch_async(dispatch_get_main_queue()) {
-                self.completeSequential()
+                self.completeSerial()
             }
         }
     }
     
-    func completeSequential() {
-        if let time = sequentialTime {
-            sequentialTime = CACurrentMediaTime() - time
+    func completeSerial() {
+        if let time = serialTime {
+            serialTime = CACurrentMediaTime() - time
         }
-        sequentialError = abs(M_PI - sequentialValue)
-        labelSequentialUpdate()
+        serialError = abs(M_PI - serialValue)
+        labelSerialUpdate()
     }
     
-    func labelSequentialUpdate() {
+    func labelSerialUpdate() {
         var timeString = "-.--"
-        if let time = sequentialTime, str = formatterTime.stringFromNumber(NSNumber(double: time)) {
+        if let time = serialTime, str = formatterTime.stringFromNumber(NSNumber(double: time)) {
             timeString = str
         }
-        labelSequentialTime?.text = timeString + " secs"
+        labelSerialTime?.text = timeString + " secs"
         
         var errString = "-.--E--"
-        if let error = sequentialError, str = formatterError.stringFromNumber(NSNumber(double: error)) {
+        if let error = serialError, str = formatterError.stringFromNumber(NSNumber(double: error)) {
             errString = str
         }
-        labelSequentialError?.text = errString
+        labelSerialError?.text = errString
     }
     
     

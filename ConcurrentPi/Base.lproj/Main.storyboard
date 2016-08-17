@@ -96,7 +96,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pPl-an-yxJ">
                                         <rect key="frame" x="0.0" y="182" width="560" height="63"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Simple sequential:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GA2-3W-cTL">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Simple serial:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GA2-3W-cTL">
                                                 <rect key="frame" x="0.0" y="0.0" width="560" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -111,7 +111,7 @@
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.000000 sec" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NHu-4Q-r8S">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.000000 sec" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NHu-4Q-r8S" userLabel="Label Serial Time">
                                                         <rect key="frame" x="175" y="0.0" width="385" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -128,7 +128,7 @@
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0000E-00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c9Z-Gl-5dw">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0000E-00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c9Z-Gl-5dw" userLabel="Label Serial Error">
                                                         <rect key="frame" x="175" y="0.0" width="385" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -208,10 +208,10 @@
                     </view>
                     <connections>
                         <outlet property="labelDispatchError" destination="HR2-Oi-iTn" id="RNG-zF-LYP"/>
-                        <outlet property="labelDispatchTime" destination="UWk-dT-rXH" id="6da-9Q-Cti"/>
+                        <outlet property="labelDispatchTime" destination="UWk-dT-rXH" id="9S4-bc-JIb"/>
                         <outlet property="labelJobs" destination="Bwa-F1-VK5" id="ZJm-RC-ncK"/>
-                        <outlet property="labelSequentialError" destination="c9Z-Gl-5dw" id="10s-u0-TOi"/>
-                        <outlet property="labelSequentialTime" destination="NHu-4Q-r8S" id="b58-36-OH4"/>
+                        <outlet property="labelSerialError" destination="c9Z-Gl-5dw" id="JWl-mE-udN"/>
+                        <outlet property="labelSerialTime" destination="NHu-4Q-r8S" id="gS3-vb-Fnw"/>
                         <outlet property="labelTrials" destination="8tW-NA-hqT" id="lPI-wp-7Cp"/>
                         <outlet property="stepperJobs" destination="Pz9-O7-lkz" id="9qa-pf-teG"/>
                         <outlet property="stepperTrials" destination="rZF-ri-nus" id="zZ1-ch-eR8"/>
