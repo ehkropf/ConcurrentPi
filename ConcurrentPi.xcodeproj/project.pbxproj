@@ -12,6 +12,7 @@
 		FB301D8C1D5B99BB002A5489 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB301D8A1D5B99BB002A5489 /* Main.storyboard */; };
 		FB301D8E1D5B99BB002A5489 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB301D8D1D5B99BB002A5489 /* Assets.xcassets */; };
 		FB301D911D5B99BB002A5489 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB301D8F1D5B99BB002A5489 /* LaunchScreen.storyboard */; };
+		FB8D88D21D64532600444BFD /* MonteCarlo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8D88D11D64532600444BFD /* MonteCarlo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		FB301D8D1D5B99BB002A5489 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB301D901D5B99BB002A5489 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB301D921D5B99BB002A5489 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB8D88D11D64532600444BFD /* MonteCarlo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonteCarlo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				FB301D861D5B99BB002A5489 /* AppDelegate.swift */,
+				FB8D88D11D64532600444BFD /* MonteCarlo.swift */,
 				FB301D881D5B99BB002A5489 /* ViewController.swift */,
 				FB301D8A1D5B99BB002A5489 /* Main.storyboard */,
 				FB301D8D1D5B99BB002A5489 /* Assets.xcassets */,
@@ -136,6 +139,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB8D88D21D64532600444BFD /* MonteCarlo.swift in Sources */,
 				FB301D891D5B99BB002A5489 /* ViewController.swift in Sources */,
 				FB301D871D5B99BB002A5489 /* AppDelegate.swift in Sources */,
 			);
@@ -289,6 +293,7 @@
 				FB301D971D5B99BB002A5489 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
