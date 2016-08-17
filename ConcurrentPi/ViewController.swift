@@ -111,8 +111,12 @@ class ViewController: UIViewController {
     var serialError: Double?
     
     func launchSerial() {
-        serialTime = CACurrentMediaTime()
+        serialTime = nil
+        serialError = nil
+        labelSerialUpdate()
+        
         activitySerial?.startAnimating()
+        serialTime = CACurrentMediaTime()
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) {
             self.serialValue = Double.piEstimateSerial
             dispatch_async(dispatch_get_main_queue()) {
@@ -152,8 +156,12 @@ class ViewController: UIViewController {
     var dispatchError: Double?
     
     func launchDispatch() {
-        dispatchTime = CACurrentMediaTime()
+        dispatchTime = nil
+        dispatchError = nil
+        labelDispatchUpdate()
+        
         activityDispatch?.startAnimating()
+        dispatchTime = CACurrentMediaTime()
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) {
             Double.piEstimateGCD(&self.dispatchValue, block: self.completeDispatch)
         }
